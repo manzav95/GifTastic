@@ -1,0 +1,26 @@
+.main-container{
+    border: 1px solid black;
+    height: auto;
+}
+
+.buttons{
+    width: 100%;
+    border: 1px solid red;
+    height: 20px;
+}
+
+.middle{
+    border: 1px solid blue;
+    display: flex;
+    height: 100%;
+}
+
+.images{
+    border: 1px solid green;
+    width: 65%;
+}
+
+.user-input{
+    border: 1px solid orange;
+    width: 35%;
+}
