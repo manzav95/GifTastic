@@ -8,6 +8,10 @@
     border: 1px solid red;
 }
 
+button{
+    margin: 3px 5px;
+}
+
 .middle{
     border: 1px solid blue;
     height: 100%;
@@ -19,7 +23,15 @@
     width: 65%;
     display: flex;
     flex-wrap: wrap;
+}
 
+#gifs div{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.gifs{
+    animation-play-state: paused;
 }
 
 #animal-form{

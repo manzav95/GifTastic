@@ -1,7 +1,6 @@
 let animals = ["dog", "cat", "dragon"];
 let api_key = "4W3AoCrWMOevXQ1RoDoZkQ5HnWOzqqa4";
 
-
 function createButton(){
     $("#buttons").empty();
 
@@ -27,36 +26,41 @@ $("#add-animal").on("click", function(){
         console.log(animalIn);
         $("#animal-input").empty();
     }
+    createButton();
+    console.log(animals);
 });
 
 createButton();
     
-    $("button").on("click", function(){
-        let animal = $(this).attr("data-name");
-        let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=" + api_key;
+$("button").on("click", function(){
+    event.preventDefault();
 
-        $("#gifs").empty();
+    let animal = $(this).attr("data-name");
+    let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=" + api_key;
 
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function(response){
-            console.log(response);
+    $("#gifs").empty();
 
-            let gifs = response.data;
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
 
-                for(let index = 0; index <= 10; index++){
-                    let gifDiv = $("<div>");
-                    let rating = gifs[index].rating;
-                    let p = $("<p>").text("Rating: " + rating);
-                    let images = $("<img>");
-                    images.attr("src", gifs[index].images.original.url);
-                    images.attr("style", "width:250px");
+        let gifs = response.data;
 
-                    gifDiv.prepend(p);
-                    gifDiv.append(images);
+            for(let index = 0; index < 10; index++){
+                let gifDiv = $("<div>");
+                let rating = gifs[index].rating;
+                let p = $("<p>").text("Rating: " + rating);
+                let images = $("<img>");
+                images.attr("src", gifs[index].images.original.url);
+                images.addClass("gifs");
+                images.attr("style", "width:250px");
 
-                    $("#gifs").prepend(gifDiv);
-                };            
-        });
-    })
+                gifDiv.prepend(p);
+                gifDiv.append(images);
+
+                $("#gifs").prepend(gifDiv);
+            };            
+    });
+})
