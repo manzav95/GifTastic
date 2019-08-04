@@ -7,5 +7,5 @@ When another button is pressed, the page removes the gifs currently being displa
 ![GIF](assets/images/giftastic.gif)
 ![GIF](assets/images/giftastic2.gif)
 
-Pseudocode
-I was on a roll doing this project and ended up running into a wall trying to figure out why my buttons stopped working after the user inputs a button. Everything functions properly but as soon as I push another item into the array of 'animals', the buttons all become unresponsive, even the ones that were functioning prior to adding the new button. I also could not figure out how to make the gifs stop/start. I looked back into the assignment where we did make them stop/start by clicking them but in that file, there were two separate files. An animated and a still. I guess I could screen shot each one but I spent hours looking for a method or something that would serve my purpose but I came up short and time ran out. I will update this in the following days to incorporate the stills/animated gifs.
+# Pseudocode
+I could not figure out how to make the gifs stop/start. I looked back into the assignment where we did make them stop/start by clicking them but in that file, there were two separate files. An animated and a still. I guess I could screen shot each one and save it into the <img> tag but if its run off an API, the images will constantly update. I spent hours looking for a method or something that would serve my purpose but I came up short and time ran out. I will update this in the following days to incorporate the stills/animated gifs.
