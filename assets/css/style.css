@@ -50,3 +50,7 @@ img:hover{
     width: 35%;
     padding: 5px;
 }
+
+#animal-input{
+    padding-left: 3px;
+}
