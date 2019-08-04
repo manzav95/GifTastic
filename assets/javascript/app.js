@@ -1,6 +1,6 @@
 let animals = ["dog", "cat", "dragon"];
-let animal;
 let api_key = "4W3AoCrWMOevXQ1RoDoZkQ5HnWOzqqa4";
+
 
 function createButton(){
     $("#buttons").empty();
@@ -14,38 +14,49 @@ function createButton(){
     }
 };
 
-function alertAnimalName(){
-    let animalName = $(this).attr("data-name");
-    alert(animalName);
-}
-
 $("#add-animal").on("click", function(){
     event.preventDefault();
 
-    let animal = $("#animal-input").val().trim();
-    if(animal === ""){
+    let animalIn = $("#animal-input").val().trim();
+    if(animalIn === ""){
         alert("Please enter an animal");
     }
     else{
-        animals.push(animal);
+        animals.push(animalIn);
         createButton();
-        console.log(animal);
+        console.log(animalIn);
         $("#animal-input").empty();
     }
 });
 
-$(document).on("click", ".animal", alertAnimalName);
-
 createButton();
+    
+    $("button").on("click", function(){
+        let animal = $(this).attr("data-name");
+        let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=" + api_key;
 
-let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=" + api_key;
+        $("#gifs").empty();
 
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function(response){
-    console.log(response);
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
 
-});
+            let gifs = response.data;
 
+                for(let index = 0; index <= 10; index++){
+                    let gifDiv = $("<div>");
+                    let rating = gifs[index].rating;
+                    let p = $("<p>").text("Rating: " + rating);
+                    let images = $("<img>");
+                    images.attr("src", gifs[index].images.original.url);
+                    images.attr("style", "width:250px");
 
+                    gifDiv.prepend(p);
+                    gifDiv.append(images);
+
+                    $("#gifs").prepend(gifDiv);
+                };            
+        });
+    })

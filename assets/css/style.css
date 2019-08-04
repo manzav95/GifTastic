@@ -10,16 +10,20 @@
 
 .middle{
     border: 1px solid blue;
-    display: flex;
     height: 100%;
+    display: flex;
 }
 
-.images{
+#gifs{
     border: 1px solid green;
     width: 65%;
+    display: flex;
+    flex-wrap: wrap;
+
 }
 
-.user-input{
+#animal-form{
     border: 1px solid orange;
     width: 35%;
+    padding: 5px;
 }
