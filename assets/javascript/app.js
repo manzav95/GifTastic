@@ -50,7 +50,7 @@ $("button").on("click", function(){
 
             for(let index = 0; index < 10; index++){
                 let gifDiv = $("<div>");
-                let rating = gifs[index].rating;
+                let rating = gifs[index].rating.toUpperCase();
                 let p = $("<p>").text("Rating: " + rating);
                 let images = $("<img>");
                 images.attr("src", gifs[index].images.original.url);
